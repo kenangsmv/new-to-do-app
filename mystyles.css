@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0%;
+        padding: 0%;
+        overflow-x: hidden;
+
+       
+    }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans", sans-serif;
+}
+p,
+span {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+li{
+    margin: 0;
+    padding: 0;
+}
+.w100 {
+    width: 100%;
+}
+/* flex*/
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+  
+}
+.border-none{
+    border: none;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.column-flex-start {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.column-flex-end {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+.my-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.my-column {
+    display: flex;
+    flex-direction: column;
+}
+/*positions*/
+.my-relative {
+    position: relative;
+}
+/* margins*/
+.mtb-10{
+   margin: 10px 0;
+}
+ 

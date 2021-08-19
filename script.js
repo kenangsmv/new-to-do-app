@@ -4,7 +4,7 @@ add_btn = document.querySelector("#add_btn"),
 categoires_form = document.querySelectorAll('.categories-item'),
 task_item = document.querySelectorAll('.task-items'),
 trash_can = document.querySelector('.trash-can'),
-task_items_place = document.querySelector(".task-body");
+task_items_place = document.querySelector("#task_items_parent");
 
 let task_item_object;
 
@@ -51,10 +51,12 @@ function createTask_item(value, id) {
     var id__="";
     for (let i = 0; i < value.length; i++) {
          id__+=value[i];
+
         
     }
-    task_items.id=id__;
-    task_items.setAttribute("draggable", true)
+    id__=id__.replace(/ /g,'');
+    task_items.setAttribute("id", id__);
+    task_items.setAttribute("draggable", true);
 
     let done_button = document.createElement("input");
     done_button.type="checkbox";
@@ -67,7 +69,7 @@ function createTask_item(value, id) {
     task_items.appendChild(p)
     col_12.appendChild(task_items);
 
-    task_items_place.firstElementChild.appendChild(col_12);
+    task_items_place.appendChild(col_12);
     
 }
 
@@ -93,69 +95,37 @@ function setItemToLocalStorage(value) {
 
 }
 
-// task_item.forEach(element => {
-//       element.addEventListener("dragstart" , function (e) {
-        
-//           e.dataTransfer.setData("element_id", this.id);
 
-//           console.log(this.id);
-//       });
-    
-// });
 
-for (const iterator of task_item) {
-    iterator.addEventListener("dragstart" , function (e) {
-        
-        e.dataTransfer.setData("element_id", this.id);
+task_items_place.addEventListener("dragstart", function (e) {
+    e.dataTransfer.setData("Elementid", e.target.id);
 
-        console.log(this.id);
-    });
-}
+          
+});
+
+
 
 trash_can.addEventListener("dragover",function (e) {
     e.preventDefault();
     
 })
 
-// trash_can.addEventListener("drop", function (e) {
-//     e.stopPropagation();
 
-//     let dragged_item_id = e.dataTransfer.getData("element_id");
 
-//     let dragged_item = document.getElementById(dragged_item_id);
-    
-//     console.log(dragged_item_id);
-//     console.log(dragged_item);
 
-//     dragged_item.parentElement.remove();
-//     console.log("dragged")
 
-// });
+trash_can.addEventListener("drop", delete_item);
 
-trash_can.addEventListener("drop", function (e) {
+function delete_item(e) {
     e.stopPropagation();
-    let dragged_item_id = e.dataTransfer.getData("element_id");
+
+    let dragged_item_id = e.dataTransfer.getData("Elementid");
 
     let dragged_item = document.getElementById(dragged_item_id);
-    trash_can.appendChild(dragged_item);
-
-});
-
-
-// trash_can.addEventListener("drop", delete_item);
-
-// function delete_item(e) {
-//     e.stopPropagation();
-
-//     let dragged_item_id = e.dataTransfer.getData("element_id");
-
-//     let dragged_item = document.getElementById(dragged_item_id);
     
-//     console.log(dragged_item_id);
-//     console.log(dragged_item);
-
-//     dragged_item.parentElement.remove();
-//     console.log("dragged")
+    
+    dragged_item.parentElement.remove();
+    
 
 
-// }
+}

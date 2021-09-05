@@ -26,6 +26,7 @@ body {
   width: 100%;
   padding: 10px;
   border-bottom: 1px solid #00000021;
+  position: relative;
 }
 
 .side-navbar .account img {
@@ -36,6 +37,31 @@ body {
 
 .side-navbar .account p {
   padding-left: 10px;
+}
+
+.side-navbar .account::after {
+  content: "coming soon";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+  color: black;
 }
 
 .side-navbar .task-categories-menu {
@@ -133,8 +159,14 @@ header .title h2 {
   height: 40px;
   border-bottom: 1px solid black;
   margin-bottom: 15px;
-  cursor: -webkit-grab;
-  cursor: grab;
+  position: relative;
+}
+
+.task-body .task-items .task-delete {
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+  cursor: pointer;
 }
 
 .task-body .task-items p {
